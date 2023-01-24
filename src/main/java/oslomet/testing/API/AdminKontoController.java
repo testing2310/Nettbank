@@ -14,6 +14,7 @@ public class AdminKontoController {
     @Autowired
     AdminRepository repository;
 
+
     @Autowired
     private Sikkerhet sjekk;
 
