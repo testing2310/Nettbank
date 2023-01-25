@@ -100,5 +100,8 @@ public class EnhetstestBankController {
         // assert
         assertNull(resultat);
     }
+
+
+    //test kommentar
 }
 
