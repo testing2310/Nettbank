@@ -68,6 +68,7 @@ public class EnhetstestBankController {
         assertNull(resultat);
     }
 
+
     @Test
     public void hentKonti_LoggetInn()  {
         // arrange
