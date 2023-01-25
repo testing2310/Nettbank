@@ -388,4 +388,4 @@ public class EnhetstestBankController {
 }
 
 // kommentar
-
+//kommentar 2
