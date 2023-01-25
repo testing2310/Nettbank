@@ -1,7 +1,6 @@
 package oslomet.testing.Models;
 
-public class Kunde
-{
+public class Kunde {
     private String personnummer;
     private String fornavn;
     private String etternavn;

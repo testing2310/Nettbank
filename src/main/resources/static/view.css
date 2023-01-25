@@ -1,8 +1,7 @@
-.navbar  
-{
-    background-color: #ccccff; 
+.navbar {
+    background-color: #ccccff;
 }
-.navbar .nav > li > a, .navbar-brand
-{
+
+.navbar .nav > li > a, .navbar-brand {
     font-size: 20px;
 }

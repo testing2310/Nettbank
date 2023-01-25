@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import oslomet.testing.Models.Konto;
 import oslomet.testing.Models.Kunde;
+
 import java.util.List;
 
 @Repository
@@ -14,14 +15,13 @@ public class AdminRepository {
     @Autowired
     private JdbcTemplate db;
 
-    public List<Kunde> hentAlleKunder(){
-         try{
-             String sql = "Select * from Kunde Join Poststed On Kunde.Postnr = Poststed.Postnr ORDER BY Personnummer" ;
-             List<Kunde> alleKunder = db.query(sql,new BeanPropertyRowMapper(Kunde.class));
-             return alleKunder;
-         }
-         catch(Exception e){
-             return null;
+    public List<Kunde> hentAlleKunder() {
+        try {
+            String sql = "Select * from Kunde Join Poststed On Kunde.Postnr = Poststed.Postnr ORDER BY Personnummer";
+            List<Kunde> alleKunder = db.query(sql, new BeanPropertyRowMapper(Kunde.class));
+            return alleKunder;
+        } catch (Exception e) {
+            return null;
         }
     }
 
@@ -32,29 +32,25 @@ public class AdminRepository {
         try {
             sql = "SELECT count(*) FROM Poststed WHERE postnr = ?";
             etPostSted = db.queryForObject(sql, Integer.class, kunde.getPostnr());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return "Feil";
         }
-        if(etPostSted == 0)
-        {
+        if (etPostSted == 0) {
             // ligger ikke i poststedstabellen
             try {
                 sql = "Insert Into Poststed (Postnr, Poststed) Values (?,?)";
                 db.update(sql, kunde.getPostnr(), kunde.getPoststed());
-            }
-            catch(Exception e){
+            } catch (Exception e) {
                 return "Feil";
             }
         }
         // oppdater Kunde-tabellen
         try {
-           sql = "Update Kunde Set Fornavn = ?, Etternavn = ?," +
+            sql = "Update Kunde Set Fornavn = ?, Etternavn = ?," +
                     " Adresse = ?, Postnr = ?, Telefonnr = ?, Passord =? Where Personnummer = ?";
             db.update(sql, kunde.getFornavn(), kunde.getEtternavn(), kunde.getAdresse(), kunde.getPostnr(),
                     kunde.getTelefonnr(), kunde.getPassord(), kunde.getPersonnummer());
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return "Feil";
         }
         return "OK";
@@ -67,81 +63,74 @@ public class AdminRepository {
         try {
             sql = "SELECT count(*) FROM Poststed WHERE postnr = ?";
             etPostSted = db.queryForObject(sql, Integer.class, kunde.getPostnr());
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return "Feil";
         }
-        if(etPostSted == 0)
-        {
+        if (etPostSted == 0) {
             // ligger ikke i poststedstabellen
             try {
                 sql = "Insert Into Poststed (Postnr, Poststed) Values (?,?)";
                 db.update(sql, kunde.getPostnr(), kunde.getPoststed());
-            }
-            catch(Exception e){
+            } catch (Exception e) {
                 return "Feil";
             }
         }
-        try{
+        try {
             sql = "Insert into Kunde (Personnummer,Fornavn,Etternavn,Adresse,Postnr,Telefonnr,Passord) " +
                     "Values (?,?,?,?,?,?,?)";
-                    db.update(sql,kunde.getPersonnummer(),kunde.getFornavn(),kunde.getEtternavn(),
-                    kunde.getAdresse(),kunde.getPostnr(),kunde.getTelefonnr(),kunde.getPassord());
-        }
-        catch(Exception e){
+            db.update(sql, kunde.getPersonnummer(), kunde.getFornavn(), kunde.getEtternavn(),
+                    kunde.getAdresse(), kunde.getPostnr(), kunde.getTelefonnr(), kunde.getPassord());
+        } catch (Exception e) {
             return "Feil";
         }
         return "OK";
     }
 
-    public String slettKunde(String personnummer)  {
-        try{
+    public String slettKunde(String personnummer) {
+        try {
             String sql = "Delete From Kunde Where Personnummer = ?";
-            db.update(sql,personnummer);
-        }
-        catch(Exception e){
+            db.update(sql, personnummer);
+        } catch (Exception e) {
             return "Feil";
         }
         return "OK";
     }
 
     public String registrerKonto(Konto konto) {
-        try{
+        try {
             String sql = "Select count(*) from Kunde Where Personnummer = ?";
-            int funnetPersonnummer  = db.queryForObject(sql,Integer.class,konto.getPersonnummer());
-            if (funnetPersonnummer == 0){
+            int funnetPersonnummer = db.queryForObject(sql, Integer.class, konto.getPersonnummer());
+            if (funnetPersonnummer == 0) {
                 return "Feil";
             }
             sql = "Insert into Konto (Personnummer, Kontonummer, Saldo, Type, Valuta) Values (?,?,?,?,?)";
-            db.update(sql,konto.getPersonnummer(),konto.getKontonummer(),konto.getSaldo(),konto.getType(),
+            db.update(sql, konto.getPersonnummer(), konto.getKontonummer(), konto.getSaldo(), konto.getType(),
                     konto.getValuta());
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return "Feil";
         }
         return "OK";
     }
 
-    public String endreKonto(Konto konto)  {
-        try{
+    public String endreKonto(Konto konto) {
+        try {
             String sql = "Select count(*) from Kunde Where Personnummer = ?";
-            int funnetPersonnummer  = db.queryForObject(sql,Integer.class,konto.getPersonnummer());
-            if (funnetPersonnummer == 0){
+            int funnetPersonnummer = db.queryForObject(sql, Integer.class, konto.getPersonnummer());
+            if (funnetPersonnummer == 0) {
                 return "Feil i personnummer";
             }
 
             sql = "Select count(*) from Konto Where Kontonummer = ?";
-            int funnetKontonummer  = db.queryForObject(sql,Integer.class,konto.getKontonummer());
-            if (funnetKontonummer == 0){
+            int funnetKontonummer = db.queryForObject(sql, Integer.class, konto.getKontonummer());
+            if (funnetKontonummer == 0) {
                 return "Feil i kontonummer";
             }
 
-            sql =  "Update Konto Set Personnummer = ?, Kontonummer = ?, Type = ?, " +
+            sql = "Update Konto Set Personnummer = ?, Kontonummer = ?, Type = ?, " +
                     "Saldo = ?, Valuta = ? Where Kontonummer = ?";
-            db.update(sql,konto.getPersonnummer(),konto.getKontonummer(),konto.getType(),
-                    konto.getSaldo(),konto.getValuta(),konto.getKontonummer());
-        }
-        catch(Exception e){
+            db.update(sql, konto.getPersonnummer(), konto.getKontonummer(), konto.getType(),
+                    konto.getSaldo(), konto.getValuta(), konto.getKontonummer());
+        } catch (Exception e) {
             return "Feil";
         }
         return "OK";
@@ -149,17 +138,15 @@ public class AdminRepository {
 
     public List<Konto> hentAlleKonti() {
         String sql = "Select * from Konto ORDER BY Kontonummer";
-        List<Konto> alleKonti = db.query(sql,new BeanPropertyRowMapper(Konto.class));
+        List<Konto> alleKonti = db.query(sql, new BeanPropertyRowMapper(Konto.class));
         return alleKonti;
     }
 
-    public String slettKonto(String kontonummer)
-    {
-        try{
+    public String slettKonto(String kontonummer) {
+        try {
             String sql = "Delete from Konto Where Kontonummer = ?";
-            db.update(sql,kontonummer);
-        }
-        catch(Exception e){
+            db.update(sql, kontonummer);
+        } catch (Exception e) {
             return "Feil kononummer";
         }
         return "OK";

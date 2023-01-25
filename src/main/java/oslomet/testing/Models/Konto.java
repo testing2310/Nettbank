@@ -2,8 +2,7 @@ package oslomet.testing.Models;
 
 import java.util.List;
 
-public class Konto
-{
+public class Konto {
     private String personnummer;
     private String kontonummer;
     private double saldo;

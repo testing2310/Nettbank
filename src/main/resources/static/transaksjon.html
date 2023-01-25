@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Nettbank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -57,25 +57,25 @@
     <br/><br/>
     <h2>Transaksjoner for konto</h2>
     <p>Velg fra og til dato for å vise transaksjoner fra konto</p>
-        <div class="row">
-            <div class="col-md-3">
-                <label >Kontonr:</label>
-                <div id="selekt"></div>
-                <!--<input type="text" class="form-control" id="kontoNr"-->
-            </div>
-            <div class="col-md-3">
-                <label >Fra dato:</label>
-                <input type="text" class="form-control" id="fraDato" placeholder="yyyy-mm-dd">
-            </div>
-            <div class="col-md-3">
-                <label >Til dato:</label>
-                <input type="text" class="form-control" id="tilDato" placeholder="yyyy-mm-dd">
-            </div>
+    <div class="row">
+        <div class="col-md-3">
+            <label>Kontonr:</label>
+            <div id="selekt"></div>
+            <!--<input type="text" class="form-control" id="kontoNr"-->
         </div>
-        <br/>
-        <button class="btn btn-success" id="sok">Søk</button>
-        <br/> <br/>
-    <p>Transaksjoner for valgte datoer:</p>            
+        <div class="col-md-3">
+            <label>Fra dato:</label>
+            <input type="text" class="form-control" id="fraDato" placeholder="yyyy-mm-dd">
+        </div>
+        <div class="col-md-3">
+            <label>Til dato:</label>
+            <input type="text" class="form-control" id="tilDato" placeholder="yyyy-mm-dd">
+        </div>
+    </div>
+    <br/>
+    <button class="btn btn-success" id="sok">Søk</button>
+    <br/> <br/>
+    <p>Transaksjoner for valgte datoer:</p>
     <div id="listTransaksjoner">
     </div>
 </div>

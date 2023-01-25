@@ -35,7 +35,7 @@ public class EnhetstestBankController {
     private Sikkerhet sjekk;
 
     @Test
-    public void hentKundeInfo_loggetInn() {
+    public void hentKundeInfo_loggetInn(){
 
         // arrange
         Kunde enKunde = new Kunde("01010110523",
@@ -67,7 +67,7 @@ public class EnhetstestBankController {
     }
 
     @Test
-    public void hentKonti_LoggetInn()  {
+    public void hentKonti_LoggetInn() {
         // arrange
         List<Konto> konti = new ArrayList<>();
         Konto konto1 = new Konto("105010123456", "01010110523",
@@ -89,7 +89,7 @@ public class EnhetstestBankController {
     }
 
     @Test
-    public void hentKonti_IkkeLoggetInn()  {
+    public void hentKonti_IkkeLoggetInn() {
         // arrange
 
         when(sjekk.loggetInn()).thenReturn(null);

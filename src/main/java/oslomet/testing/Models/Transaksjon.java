@@ -1,7 +1,6 @@
 package oslomet.testing.Models;
 
-public class Transaksjon
-{
+public class Transaksjon {
     private int txID;
     private String fraTilKontonummer;
     private double belop;
