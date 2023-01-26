@@ -390,7 +390,8 @@ public class EnhetstestBankController {
 
 // kommentar
 //kommentar 2
-// commentar3
+// kommentar3
 // kommentar4
 // kommentar 5
 // kommentar 6
+//kommentar 7
