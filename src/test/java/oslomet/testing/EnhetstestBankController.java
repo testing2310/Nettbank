@@ -68,6 +68,7 @@ public class EnhetstestBankController {
         assertNull(resultat);
     }
 
+
     @Test
     public void hentKonti_LoggetInn() {
         // arrange
@@ -228,24 +229,24 @@ public class EnhetstestBankController {
     public void test_hentBetalingLoggetInnOK(){
 
         // arrange
-        List<Transaksjon> trasaksjoner = new ArrayList<>();
+        List<Transaksjon> transaksjoner = new ArrayList<>();
 
         Transaksjon transaksjon1 = new Transaksjon(1, "20102012345", 100.5, "2015-03-15", "Fjordkraft", "1", "105010123456");
         Transaksjon transaksjon2 = new Transaksjon(2, "20102012345", 400.4, "2015-03-20", "Skagen", "1","105010123456");
 
-        trasaksjoner.add(transaksjon1);
-        trasaksjoner.add(transaksjon2);
+        transaksjoner.add(transaksjon1);
+        transaksjoner.add(transaksjon2);
 
 
         when(sjekk.loggetInn()).thenReturn("01010110523");
 
-        when(repository.hentBetalinger(anyString())).thenReturn(trasaksjoner);
+        when(repository.hentBetalinger(anyString())).thenReturn(transaksjoner);
 
         // act
         List<Transaksjon> resultat = bankController.hentBetalinger();
 
         // assert
-        assertEquals(trasaksjoner, resultat);
+        assertEquals(transaksjoner, resultat);
 
 
     }
@@ -271,30 +272,30 @@ public class EnhetstestBankController {
     public void utforBetalingLoggetInnOK(){
 
         // arrange
-        List<Transaksjon> trasaksjoner = new ArrayList<>();
+        List<Transaksjon> transaksjoner = new ArrayList<>();
 
         Transaksjon transaksjon1 = new Transaksjon(1, "20102012345", 100.5, "2015-03-15", "Fjordkraft", "1", "105010123456");
         //Transaksjon transaksjon2 = new Transaksjon(2, "20102012345", 400.4, "2015-03-20", "Skagen", "1","105010123456");
 
 
-        Konto konto1 = new Konto("01010110523", "105010123456", 720, "Lønnskonto", "NOK", trasaksjoner);
+        Konto konto1 = new Konto("01010110523", "105010123456", 720, "Lønnskonto", "NOK", transaksjoner);
 
-        trasaksjoner.add(transaksjon1);
-        //trasaksjoner.add(transaksjon2);
+        transaksjoner.add(transaksjon1);
+        //transaksjoner.add(transaksjon2);
 
 
         when(sjekk.loggetInn()).thenReturn(konto1.getPersonnummer());
 
         when(repository.utforBetaling(transaksjon1.getTxID())).thenReturn("OK");
 
-        when(repository.hentBetalinger(konto1.getPersonnummer())).thenReturn(trasaksjoner);
+        when(repository.hentBetalinger(konto1.getPersonnummer())).thenReturn(transaksjoner);
 
 
         // act
         List<Transaksjon> resultat = bankController.utforBetaling(transaksjon1.getTxID());
 
         // assert
-        assertEquals(trasaksjoner, resultat);
+        assertEquals(transaksjoner, resultat);
 
     }
 
@@ -387,3 +388,9 @@ public class EnhetstestBankController {
     }
 }
 
+// kommentar
+//kommentar 2
+// commentar3
+// kommentar4
+// kommentar 5
+// kommentar 6
