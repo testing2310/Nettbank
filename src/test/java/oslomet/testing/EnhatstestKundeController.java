@@ -56,4 +56,5 @@ public class EnhatstestKundeController {
         // assert
         assertEquals("OK", resultat);
     }
+
 }
