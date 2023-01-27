@@ -16,7 +16,6 @@ import static org.mockito.ArgumentMatchers.any;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EnhatstestKundeController {
-
     @InjectMocks
     // denne skal testes
     private AdminKundeController kundeController;
