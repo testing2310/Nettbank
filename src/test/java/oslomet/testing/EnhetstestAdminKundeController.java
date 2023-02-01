@@ -11,7 +11,7 @@ import oslomet.testing.Models.Kunde;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 
-public class EnhatstestKundeController {
+public class EnhetstestAdminKundeController {
 
     @InjectMocks
     // denne skal testes
