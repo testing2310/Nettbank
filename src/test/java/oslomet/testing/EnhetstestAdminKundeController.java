@@ -4,16 +4,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.web.bind.annotation.RequestBody;
 import oslomet.testing.API.AdminKundeController;
-import oslomet.testing.API.BankController;
 import oslomet.testing.DAL.AdminRepository;
-import oslomet.testing.DAL.BankRepository;
-import oslomet.testing.Models.Konto;
 import oslomet.testing.Models.Kunde;
-import oslomet.testing.Models.Transaksjon;
 import oslomet.testing.Sikkerhet.Sikkerhet;
 
 import java.util.ArrayList;
