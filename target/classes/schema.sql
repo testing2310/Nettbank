@@ -124,3 +124,4 @@ CREATE TABLE IF NOT EXISTS `Transaksjon`
     `TxID`
 )
     );
+DROP TABLE IF EXISTS tabellnavn;
