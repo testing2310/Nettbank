@@ -48,7 +48,6 @@ public class enhetstestAdminKundeController {
         // assert
         assertEquals("OK", resultat);
     }
-
     @Test
     public void test_registrerKundeFeil() {
 
