@@ -42,4 +42,36 @@ public class EnhetstestAdminKontoController {
 
         assertEquals("Ikke innlogget", res);
     }
+    @Test
+    public void hentAlleKonti_OK(){
+
+    }
+    @Test
+    public void hentAlleKonti_Feil(){
+
+    }
+    @Test
+    public void registrerOK(){
+
+    }
+    @Test
+    public void registrerFeil(){
+
+    }
+    @Test
+    public void endreOK(){
+
+    }
+    @Test
+    public void endreFeil(){
+
+    }
+    @Test
+    public void slettOk(){
+
+    }
+    @Test
+    public void slettFeil(){
+
+    }
 }
