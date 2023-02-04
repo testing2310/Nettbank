@@ -47,7 +47,6 @@ public class enhetstestAdminKundeController {
 
         // assert
         assertEquals("OK", resultat);
-
     }
 
     @Test
