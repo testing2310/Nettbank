@@ -18,7 +18,7 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class enhetstestAdminKundeController {
+public class EnhetstestKundeController {
     @InjectMocks
     // denne skal testes
     private AdminKundeController kundeController;
