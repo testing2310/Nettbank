@@ -6,6 +6,7 @@ import oslomet.testing.DAL.AdminRepository;
 import oslomet.testing.Models.Kunde;
 import oslomet.testing.Sikkerhet.Sikkerhet;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 @RestController
@@ -17,6 +18,16 @@ public class AdminKundeController {
     @Autowired
     private Sikkerhet sjekk;
 
+    @Autowired
+    private DataSource dataSource;
+
+
+
+    @GetMapping("/initDB")
+    public String initDB(){
+        return repository.initDB(dataSource);
+    }
+
     @GetMapping("/hentAlle")
     public List<Kunde> hentAlle() {
         String personnummer = sjekk.loggetInn();
@@ -27,7 +38,7 @@ public class AdminKundeController {
     }
 
     @PostMapping("/lagre")
-    public String lagreKunde(@RequestBody Kunde innKunde) {
+    public String lagreKunde(Kunde innKunde) {
         String personnummer = sjekk.loggetInn();
         if (personnummer != null) {
             return repository.registrerKunde(innKunde);
@@ -36,7 +47,7 @@ public class AdminKundeController {
     }
 
     @PostMapping("/endre")
-    public String endre(@RequestBody Kunde innKunde) {
+    public String endre(Kunde innKunde) {
         String personnummer = sjekk.loggetInn();
         if (personnummer != null) {
             return repository.endreKundeInfo(innKunde);

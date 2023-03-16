@@ -5,7 +5,7 @@
 --
 -- Tabellstruktur for tabell `Konto`
 --
-
+DROP TABLE IF EXISTS `Konto`;
 CREATE TABLE IF NOT EXISTS `Konto`
 (
     `Kontonummer` varchar
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `Konto`
 --
 -- Tabellstruktur for tabell `Kunde`
 --
-
+DROP TABLE IF EXISTS `Kunde`;
 CREATE TABLE IF NOT EXISTS `Kunde`
 (
     `Personnummer` varchar
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `Kunde`
 --
 -- Tabellstruktur for tabell `Poststed`
 --
-
+DROP TABLE IF EXISTS `Poststed`;
 CREATE TABLE IF NOT EXISTS `Poststed`
 (
     `Postnr` varchar
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `Poststed`
 --
 -- Tabellstruktur for tabell `Transaksjon`
 --
-
+DROP TABLE IF EXISTS `Transaksjon`;
 CREATE TABLE IF NOT EXISTS `Transaksjon`
 (
     `TxID` int

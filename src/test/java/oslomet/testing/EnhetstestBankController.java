@@ -137,11 +137,13 @@ public class EnhetstestBankController {
     @Test
     public void test_hentTransaksjonerIkkeLoggetInn(){
 
+        // arrange
         when(sjekk.loggetInn()).thenReturn(null);
-        when(repository.hentTransaksjoner(anyString(), anyString(), anyString())).thenReturn(null);
 
+        // act
         Konto resultat = bankController.hentTransaksjoner("", "", "");
 
+        // assert
         assertNull(resultat);
     }
 
